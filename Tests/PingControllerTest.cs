@@ -1,33 +1,14 @@
+using System;
 using NUnit.Framework;
-using Yose.Controllers;
-using System.Web.Mvc;
 
-namespace Yose.Controllers
+namespace Tests
 {
-    [TestFixture]
-    public class PingControllerTest
+    [TestFixture()]
+    public class Test
     {
-        private PingController controller;
-
-        [SetUp]
-        public void NewController()
+        [Test()]
+        public void TestCase()
         {
-            controller = new PingController();
-        }
-
-        [Test]
-        public void ReturnsAJsonResult()
-        {
-            Assert.That(controller.Index(), Is.InstanceOf<JsonResult>());
-        }
-
-        [Test]
-        public void ReturnsTheValueExpectedByYose()
-        {
-            var response = (JsonResult)controller.Index();
-            var expected = new JsonResult { Data = new { alive = true } };
-
-            Assert.That(response.Data.ToString(), Is.EqualTo(expected.Data.ToString()));
         }
     }
 }
